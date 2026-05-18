@@ -1,0 +1,277 @@
+:root {
+  color-scheme: dark;
+  --bg: #e8e8e8;
+  --card: #202939;
+  --card-soft: #394456;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f7fb;
+  --muted: #b5bfd0;
+  --brand: #5f5cf3;
+  --brand-strong: #3b82f6;
+  --error-bg: rgba(255, 107, 107, 0.14);
+  --error-text: #ff8c8c;
+  --info-bg: rgba(59, 130, 246, 0.14);
+  --info-text: #90bfff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-width: 420px;
+  min-height: 560px;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  width: min(100%, 560px);
+  padding: 24px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.brand-lockup {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.icon-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.04);
+  color: #d8dfeb;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.brand-row h1,
+.step-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.brand-row p,
+.step-header p,
+#dashboardStep p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.auth-step {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-substep {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(16, 24, 47, 0.12);
+}
+
+.account-hint {
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #b9d4ff;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.step-header--center,
+#dashboardStep {
+  text-align: center;
+}
+
+.field-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.text-input,
+.otp-input {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-soft);
+  color: var(--text);
+  outline: none;
+}
+
+.text-input {
+  width: 100%;
+  height: 52px;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 14px;
+}
+
+.text-input--select {
+  appearance: none;
+  padding-right: 40px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 19px,
+    calc(100% - 14px) 19px;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.text-input:focus,
+.otp-input:focus {
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+}
+
+.primary-button,
+.link-button,
+.secondary-button {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.primary-button {
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-strong) 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.22);
+}
+
+.primary-button:disabled,
+.link-button:disabled,
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.otp-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.otp-input {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.aux-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.link-button {
+  background: transparent;
+  color: #73a9ff;
+  font-weight: 700;
+  padding: 0;
+}
+
+.status-box {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.status-box--error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.status-box--info {
+  background: var(--info-bg);
+  color: var(--info-text);
+}
+
+.dashboard-card {
+  display: grid;
+  gap: 10px;
+}
+
+.dashboard-item--stack {
+  display: grid;
+}
+
+.dashboard-actions {
+  display: grid;
+  gap: 10px;
+}
+
+.success-mark {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: #fff;
+  background: linear-gradient(180deg, #1e8e3e 0%, #188038 100%);
+  box-shadow: 0 12px 24px rgba(30, 142, 62, 0.2);
+}
+
+.auth-shell .hero-panel,
+.auth-shell .checklist,
+.auth-shell .checklist-item,
+.auth-shell .checklist-icon {
+  display: none;
+}

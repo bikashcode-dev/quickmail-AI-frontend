@@ -1,0 +1,48 @@
+{
+  "name": "QuickMail Assistant",
+  "description": "Generate polished AI replies directly inside Gmail.",
+  "version": "1.1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "icon/icon-16.png",
+    "32": "icon/icon-32.png",
+    "48": "icon/icon-48.png",
+    "128": "icon/icon-128.png"
+  },
+
+  "permissions": ["storage"],
+
+  "host_permissions": [
+    "https://quick-email-ai-production.up.railway.app/*",
+    "*://mail.google.com/*"
+  ],
+
+  "action": {
+    "default_title": "Email - Writer Assistant",
+    "default_popup": "auth.html",
+    "default_icon": {
+      "16": "icon/icon-16.png",
+      "32": "icon/icon-32.png",
+      "48": "icon/icon-48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "matches": ["*://mail.google.com/*"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icon/*", "auth.html", "auth.css", "auth.js"],
+      "matches": ["*://mail.google.com/*"]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickMail Please Login</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="auth-orb auth-orb--one"></div>
+      <div class="auth-orb auth-orb--two"></div>
+
+      <div class="auth-card__header">
+        <div class="brand-copy">
+          <div class="brand-pill">QuickMail</div>
+          <h1 id="authTitle">Login</h1>
+          <p id="authSubtitle">Sign in to QuickMail</p>
+        </div>
+        <button id="closeButton" class="icon-button" type="button" aria-label="Close">x</button>
+      </div>
+
+      <div id="errorBox" class="status-box status-box--error" hidden></div>
+      <div id="infoBox" class="status-box status-box--info" hidden></div>
+
+      <section id="loginStep" class="auth-step">
+        <div id="emailField" class="field-shell">
+          <input id="emailInput" class="text-input" type="email" placeholder=" " autocomplete="email" />
+          <label class="floating-label" for="emailInput">Email address</label>
+          <p id="emailError" class="field-error" hidden></p>
+        </div>
+
+        <div id="accountHint" class="account-hint" hidden></div>
+
+        <div id="passwordField" class="field-shell">
+          <input id="passwordInput" class="text-input text-input--with-icon" type="password" placeholder=" " autocomplete="current-password" />
+          <label class="floating-label" for="passwordInput">Password</label>
+          <button id="passwordToggleButton" class="field-icon-button" type="button" aria-label="Show password">
+            <span class="field-icon field-icon--eye" aria-hidden="true"></span>
+          </button>
+          <p id="passwordError" class="field-error" hidden></p>
+        </div>
+
+        <div class="auth-inline-row">
+          <label class="check-row">
+            <input id="showPasswordCheckbox" type="checkbox" />
+            <span class="check-indicator"></span>
+            <span>Show password</span>
+          </label>
+        </div>
+
+        <button id="loginButton" class="primary-button" type="button">Login</button>
+        <button id="sendOtpButton" class="secondary-button" type="button">Use OTP instead</button>
+
+        
+        <div class="auth-divider" aria-hidden="true">
+          <span>or</span>
+        </div>
+
+        <button id="googleButton" class="google-button" type="button">
+          <span class="google-icon" aria-hidden="true">G</span>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="auth-footer-row">
+          <span id="togglePrompt">Don't have an account?</span>
+          <button id="toggleModeButton" class="link-button" type="button">Sign up</button>
+        </div>
+
+        <section class="support-card">
+          <h3>Help for developer</h3>
+          <p>Need support, suggestions, or setup help? Reach out directly.</p>
+          <div class="support-meta">
+            <span>Email: bikashcod@gmal.com</span>
+            <span>Mobile: 9771966891</span>
+          </div>
+        </section>
+      </section>
+
+      <section id="otpStep" class="auth-step" hidden>
+        <div class="otp-copy">
+          <h2 id="otpTitle">Verify OTP</h2>
+          <p id="otpMessage">
+            <span id="otpPrefixLabel">We sent a 6-digit code to </span><span id="otpEmailLabel"></span><span id="otpSuffixLabel">.</span>
+          </p>
+        </div>
+
+        <div class="otp-row">
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+        </div>
+
+        <button id="verifyOtpButton" class="primary-button" type="button">Verify OTP</button>
+
+        <div class="otp-footer">
+          <span id="otpExpiryLabel">OTP expires in 05:00</span>
+          <button id="resendOtpButton" class="link-button" type="button" disabled>Resend OTP</button>
+        </div>
+
+        <button id="backToLoginButton" class="secondary-button" type="button">Back</button>
+      </section>
+
+      <section id="helpStep" class="auth-step" hidden>
+        <div class="otp-copy">
+          <h2>You're all set</h2>
+          <p>QuickMail is ready. Here is how to use it inside Gmail.</p>
+        </div>
+
+        <div class="guide-list">
+          <div class="guide-item">
+            <span class="guide-index">1</span>
+            <div>
+              <strong>Open Gmail</strong>
+              <p>Go to your Gmail inbox or any draft window.</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <span class="guide-index">2</span>
+            <div>
+              <strong>Find QuickMail</strong>
+              <p>Open any compose or reply box and click the QuickMail button.</p>
+            </div>
+          </div>
+          <div class="guide-item">
+            <span class="guide-index">3</span>
+            <div>
+              <strong>Generate and review</strong>
+              <p>Generate your draft, review it once, then send when ready.</p>
+            </div>
+          </div>
+        </div>
+
+        <button id="goToGmailButton" class="primary-button" type="button">Go to Gmail</button>
+        <button id="backToAuthButton" class="secondary-button" type="button">Back</button>
+
+        <section class="support-card">
+          <h3>Help for developer</h3>
+          <p>Need support, suggestions, or setup help? Reach out directly.</p>
+          <div class="support-meta">
+            <span>Email: bikashcod@gmal.com</span>
+            <span>Mobile: 9771966891</span>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="auth.js"></script>
+</body>
+</html>

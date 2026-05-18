@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickMail</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-card">
+      <div class="brand-row">
+        <div class="brand-lockup">
+          <img src="icon/icon-48.png" alt="QuickMail" class="brand-logo" />
+          <div>
+            <h1>QuickMail</h1>
+            <p>Secure sign in</p>
+          </div>
+        </div>
+        <button id="closePopupButton" class="icon-button" type="button" aria-label="Close">x</button>
+      </div>
+
+      <div id="errorBox" class="status-box status-box--error" hidden></div>
+      <div id="infoBox" class="status-box status-box--info" hidden></div>
+
+      <section id="welcomeStep" class="auth-step" hidden>
+        <div class="hero-panel">
+          <span class="hero-badge">Welcome</span>
+          <h2>Set up QuickMail in under a minute</h2>
+          <p>Sign in once, keep Gmail open, and start drafting polished emails with one click.</p>
+        </div>
+        <div class="checklist">
+          <div class="checklist-item">
+            <span class="checklist-icon">1</span>
+            <div>
+              <strong>Sign in securely</strong>
+              <p>Use OTP verification with your email address.</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="checklist-icon">2</span>
+            <div>
+              <strong>Use inside Gmail</strong>
+              <p>QuickMail works directly in compose and reply boxes.</p>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <span class="checklist-icon">3</span>
+            <div>
+              <strong>Generate with one click</strong>
+              <p>Review the draft and send only when you are ready.</p>
+            </div>
+          </div>
+        </div>
+        <button id="getStartedButton" class="primary-button">Get Started</button>
+      </section>
+
+      <section id="emailStep" class="auth-step" hidden>
+        <div class="step-header">
+          <h2>Sign in to QuickMail</h2>
+          <p>Enter your email and we will send you a secure 6-digit OTP.</p>
+        </div>
+        <label class="field-label" for="emailInput">Email address</label>
+        <input id="emailInput" class="text-input" type="email" placeholder="you@example.com" autocomplete="email" />
+        <div id="accountHint" class="account-hint" hidden></div>
+        <button id="sendOtpButton" class="primary-button">Send OTP</button>
+        <button id="showPasswordLoginButton" class="secondary-button" type="button" hidden>Login with Password</button>
+        <button id="backToWelcomeButton" class="secondary-button" type="button" hidden>Back</button>
+        <button id="toggleOtpButton" class="link-button" type="button" hidden>New here? Continue with OTP</button>
+
+        <section id="passwordLoginStep" class="auth-substep" hidden>
+          <div class="step-header">
+            <h2>Password Login</h2>
+            <p>Use your saved password if you already set one after OTP verification.</p>
+          </div>
+          <label class="field-label" for="passwordInput">Password</label>
+          <input id="passwordInput" class="text-input" type="password" placeholder="Enter your password" autocomplete="current-password" />
+          <button id="passwordLoginButton" class="primary-button" type="button">Sign In With Password</button>
+          <button id="backToOtpLoginButton" class="secondary-button" type="button">Back to OTP</button>
+        </section>
+      </section>
+
+      <section id="otpStep" class="auth-step" hidden>
+        <div class="step-header">
+          <h2>Verify OTP</h2>
+          <p>We sent a 6-digit code to <span id="otpEmailLabel"></span>.</p>
+        </div>
+        <div class="otp-row">
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+          <input class="otp-input" maxlength="1" inputmode="numeric" />
+        </div>
+        <button id="verifyOtpButton" class="primary-button">Verify OTP</button>
+        <div class="aux-row">
+          <span id="otpExpiryLabel">OTP expires in 05:00</span>
+          <button id="resendOtpButton" class="link-button" disabled>Resend OTP</button>
+        </div>
+      </section>
+
+      <section id="dashboardStep" class="auth-step" hidden>
+        <div class="success-mark">✓</div>
+        <div class="step-header step-header--center">
+          <h2>You're signed in</h2>
+          <p id="successEmailLabel"></p>
+        </div>
+        <div class="dashboard-card">
+          <div class="dashboard-item">
+            <strong>Main dashboard</strong>
+            <p>Open Gmail and click QuickMail in any compose or reply box.</p>
+          </div>
+          <div class="dashboard-item">
+            <strong>Ready to use</strong>
+            <p>Your session stays active, so you should not need to log in again and again.</p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <div class="dashboard-item dashboard-item--stack">
+            <strong>Set password</strong>
+            <p>Optional: save a password so you can log in next time without OTP.</p>
+            <input id="setPasswordInput" class="text-input" type="password" placeholder="Create a password" autocomplete="new-password" />
+            <button id="setPasswordButton" class="secondary-button" type="button">Save Password</button>
+          </div>
+        </div>
+        <div class="dashboard-actions">
+          <button id="openGmailButton" class="primary-button" type="button">Open Gmail</button>
+          <button id="logoutButton" class="secondary-button" type="button">Log out</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
