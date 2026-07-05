@@ -2,7 +2,7 @@
 
 QuickMail is a Chrome extension that adds AI-assisted email drafting directly inside Gmail. It connects to the deployed QuickMail backend on Railway for OTP auth, JWT-secured access, and AI draft generation.
 
-## What It Does
+## What It Does ? Working l
 
 - adds a QuickMail button inside Gmail compose and reply boxes
 - supports both reply mode and fresh compose mode
