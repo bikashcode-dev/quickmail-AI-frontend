@@ -58,7 +58,7 @@ flowchart TD
     B --> C["🔘 QuickMail button injected into toolbar"]
     C --> D["🖱️ User clicks QuickMail"]
     D --> E["📖 Read current compose context"]
-    E --> F{"↩️ Reply or<br/>✍️ Compose?"}
+    E --> F{"↩️ Reply or<br/>Compose?"}
     F --> G["🎭 Gather tone, instruction,<br/>previous variation data"]
     G --> H["📨 Ask background.js<br/>to call the backend"]
     H --> I["🤖 AI draft generated"]
